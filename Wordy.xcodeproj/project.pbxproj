@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB79F29A5B9FD00645147 /* WordChange.swift */; };
+		D46DB7A329A5B9FD00645147 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A029A5B9FD00645147 /* Word.swift */; };
+		D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A129A5B9FD00645147 /* WordTag.swift */; };
+		D46DB7A629A5BA2300645147 /* RepoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A529A5BA2300645147 /* RepoError.swift */; };
+		D46DB7A829A5BA2800645147 /* ECDictRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A729A5BA2800645147 /* ECDictRepo.swift */; };
+		D46DB7AA29A5BB5A00645147 /* db_ecdict.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D46DB7A929A5BB5A00645147 /* db_ecdict.sqlite3 */; };
 		D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */; };
 		D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BA029A5AE4400CC463A /* ContentView.swift */; };
 		D4AA7BA329A5AE4500CC463A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AA7BA229A5AE4500CC463A /* Assets.xcassets */; };
@@ -15,11 +21,6 @@
 		D4AA7BBA29A5AE4500CC463A /* WordyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BB929A5AE4500CC463A /* WordyUITests.swift */; };
 		D4AA7BBC29A5AE4500CC463A /* WordyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BBB29A5AE4500CC463A /* WordyUITestsLaunchTests.swift */; };
 		D4AA7BCA29A5B0A100CC463A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = D4AA7BC929A5B0A100CC463A /* SQLite */; };
-		D4AA7BD229A5B32600CC463A /* WordTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BCF29A5B32600CC463A /* WordTag.swift */; };
-		D4AA7BD329A5B32600CC463A /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BD029A5B32600CC463A /* Word.swift */; };
-		D4AA7BD429A5B32600CC463A /* WordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BD129A5B32600CC463A /* WordChange.swift */; };
-		D4AA7BD729A5B38200CC463A /* ECDictRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BD529A5B38200CC463A /* ECDictRepo.swift */; };
-		D4AA7BD829A5B38200CC463A /* RepoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BD629A5B38200CC463A /* RepoError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D46DB79F29A5B9FD00645147 /* WordChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordChange.swift; sourceTree = "<group>"; };
+		D46DB7A029A5B9FD00645147 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		D46DB7A129A5B9FD00645147 /* WordTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTag.swift; sourceTree = "<group>"; };
+		D46DB7A529A5BA2300645147 /* RepoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoError.swift; sourceTree = "<group>"; };
+		D46DB7A729A5BA2800645147 /* ECDictRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECDictRepo.swift; sourceTree = "<group>"; };
+		D46DB7A929A5BB5A00645147 /* db_ecdict.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_ecdict.sqlite3; sourceTree = "<group>"; };
 		D4AA7B9B29A5AE4400CC463A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyApp.swift; sourceTree = "<group>"; };
 		D4AA7BA029A5AE4400CC463A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,11 +57,6 @@
 		D4AA7BB529A5AE4500CC463A /* WordyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7BB929A5AE4500CC463A /* WordyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyUITests.swift; sourceTree = "<group>"; };
 		D4AA7BBB29A5AE4500CC463A /* WordyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D4AA7BCF29A5B32600CC463A /* WordTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTag.swift; path = ../../../Repo/Repo/Model/WordTag.swift; sourceTree = "<group>"; };
-		D4AA7BD029A5B32600CC463A /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = ../../../Repo/Repo/Model/Word.swift; sourceTree = "<group>"; };
-		D4AA7BD129A5B32600CC463A /* WordChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordChange.swift; path = ../../../Repo/Repo/Model/WordChange.swift; sourceTree = "<group>"; };
-		D4AA7BD529A5B38200CC463A /* ECDictRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ECDictRepo.swift; path = ../../../Repo/Repo/ECDictRepo.swift; sourceTree = "<group>"; };
-		D4AA7BD629A5B38200CC463A /* RepoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoError.swift; path = ../../../Repo/Repo/RepoError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				D4AA7BA229A5AE4500CC463A /* Assets.xcassets */,
 				D4AA7BA529A5AE4500CC463A /* Preview Assets.xcassets */,
+				D46DB7A929A5BB5A00645147 /* db_ecdict.sqlite3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -152,8 +155,8 @@
 		D4AA7BCD29A5B2D500CC463A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				D4AA7BD529A5B38200CC463A /* ECDictRepo.swift */,
-				D4AA7BD629A5B38200CC463A /* RepoError.swift */,
+				D46DB7A729A5BA2800645147 /* ECDictRepo.swift */,
+				D46DB7A529A5BA2300645147 /* RepoError.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -161,9 +164,9 @@
 		D4AA7BCE29A5B30900CC463A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D4AA7BD029A5B32600CC463A /* Word.swift */,
-				D4AA7BD129A5B32600CC463A /* WordChange.swift */,
-				D4AA7BCF29A5B32600CC463A /* WordTag.swift */,
+				D46DB7A029A5B9FD00645147 /* Word.swift */,
+				D46DB79F29A5B9FD00645147 /* WordChange.swift */,
+				D46DB7A129A5B9FD00645147 /* WordTag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4AA7BA629A5AE4500CC463A /* Preview Assets.xcassets in Resources */,
+				D46DB7AA29A5BB5A00645147 /* db_ecdict.sqlite3 in Resources */,
 				D4AA7BA329A5AE4500CC463A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,13 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4AA7BD429A5B32600CC463A /* WordChange.swift in Sources */,
-				D4AA7BD729A5B38200CC463A /* ECDictRepo.swift in Sources */,
+				D46DB7A629A5BA2300645147 /* RepoError.swift in Sources */,
+				D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */,
+				D46DB7A829A5BA2800645147 /* ECDictRepo.swift in Sources */,
+				D46DB7A329A5B9FD00645147 /* Word.swift in Sources */,
 				D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */,
-				D4AA7BD329A5B32600CC463A /* Word.swift in Sources */,
 				D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */,
-				D4AA7BD829A5B38200CC463A /* RepoError.swift in Sources */,
-				D4AA7BD229A5B32600CC463A /* WordTag.swift in Sources */,
+				D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
