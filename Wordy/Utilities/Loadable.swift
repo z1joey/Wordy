@@ -6,7 +6,9 @@
 //
 
 import Foundation
-import Combine
+import SwiftUI
+
+typealias LoadableSubject<Value> = Binding<Loadable<Value>>
 
 enum Loadable<T> {
     case notRequested
@@ -71,5 +73,22 @@ extension Loadable: Equatable where T: Equatable {
 struct CancelledByUserError: Error {
     var localizedDescription: String {
         NSLocalizedString("Canceled by user", comment: "")
+    }
+}
+
+import Combine
+
+extension Publisher {
+    func sinkToLoadable(_ completion: @escaping (Loadable<Output>) -> Void) -> AnyCancellable {
+        return sink { subscriptionCompletion in
+            switch subscriptionCompletion {
+            case .failure(let error):
+                completion(.failed(error))
+            default:
+                break
+            }
+        } receiveValue: { val in
+            completion(.loaded(val))
+        }
     }
 }
