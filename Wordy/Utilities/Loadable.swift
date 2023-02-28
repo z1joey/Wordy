@@ -35,6 +35,19 @@ enum Loadable<T> {
             return nil
         }
     }
+
+    var desc: String {
+        switch self {
+        case .notRequested:
+            return "not started"
+        case .isLoading:
+            return "is loadind"
+        case .loaded:
+            return "success"
+        case .failed(let error):
+            return "error happened: \(error.localizedDescription)"
+        }
+    }
 }
 
 extension Loadable {

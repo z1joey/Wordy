@@ -9,11 +9,28 @@ import Foundation
 import Combine
 
 protocol EC_DICT_INTERACTOR {
+    func connect(_ connection: LoadableSubject<Void>)
     func load(_ detail: LoadableSubject<Word>, forWord word: String)
     func load(_ wordList: LoadableSubject<[Word]>, forTag tag: String)
 }
 
 struct ECDictInteractor: EC_DICT_INTERACTOR {
+    func connect(_ connection: LoadableSubject<Void>) {
+        let cancelBag = CancelBag()
+        connection.wrappedValue.setIsLoading(cancelBag: cancelBag)
+
+        Just<Void>(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+            .flatMap {
+                return dict.connect()
+            }
+            .sinkToLoadable {
+                connection.wrappedValue = $0
+            }
+            .store(in: cancelBag)
+    }
+
     private let dict: EC_DICT_REPO
 
     init(dictRepo: EC_DICT_REPO) {
@@ -50,6 +67,7 @@ struct ECDictInteractor: EC_DICT_INTERACTOR {
 }
 
 struct StubECDictInteractor: EC_DICT_INTERACTOR {
+    func connect(_ connection: LoadableSubject<Void>) {}
     func load(_ detail: LoadableSubject<Word>, forWord word: String) {}
     func load(_ wordList: LoadableSubject<[Word]>, forTag tag: String) {}
 }
