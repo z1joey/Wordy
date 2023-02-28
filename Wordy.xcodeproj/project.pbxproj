@@ -16,6 +16,13 @@
 		D46DB7AD29A750F100645147 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7AC29A750F100645147 /* Loadable.swift */; };
 		D46DB7AF29A752EA00645147 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7AE29A752EA00645147 /* CancelBag.swift */; };
 		D46DB7B129A78BD000645147 /* LoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7B029A78BD000645147 /* LoadableTests.swift */; };
+		D46DB7B429A7933E00645147 /* ECDictInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7B329A7933E00645147 /* ECDictInteractor.swift */; };
+		D46DB7B729A79EA100645147 /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7B629A79EA100645147 /* InteractorsContainer.swift */; };
+		D46DB7B929A7A00B00645147 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7B829A7A00B00645147 /* DependencyInjector.swift */; };
+		D46DB7BD29AC943500645147 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7BC29AC943500645147 /* WordList.swift */; };
+		D46DB7C029AC98A500645147 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7BF29AC98A500645147 /* AppEnvironment.swift */; };
+		D46DB7C229ACDFB000645147 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C129ACDFB000645147 /* AppState.swift */; };
+		D46DB7C429ACE0D100645147 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C329ACE0D100645147 /* Store.swift */; };
 		D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */; };
 		D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BA029A5AE4400CC463A /* ContentView.swift */; };
 		D4AA7BA329A5AE4500CC463A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AA7BA229A5AE4500CC463A /* Assets.xcassets */; };
@@ -53,6 +60,14 @@
 		D46DB7AC29A750F100645147 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		D46DB7AE29A752EA00645147 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
 		D46DB7B029A78BD000645147 /* LoadableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableTests.swift; sourceTree = "<group>"; };
+		D46DB7B329A7933E00645147 /* ECDictInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECDictInteractor.swift; sourceTree = "<group>"; };
+		D46DB7B629A79EA100645147 /* InteractorsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
+		D46DB7B829A7A00B00645147 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		D46DB7BC29AC943500645147 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
+		D46DB7BF29AC98A500645147 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		D46DB7C129ACDFB000645147 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D46DB7C329ACE0D100645147 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		D46DB7C529AE299800645147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D4AA7B9B29A5AE4400CC463A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyApp.swift; sourceTree = "<group>"; };
 		D4AA7BA029A5AE4400CC463A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,8 +111,35 @@
 			children = (
 				D46DB7AC29A750F100645147 /* Loadable.swift */,
 				D46DB7AE29A752EA00645147 /* CancelBag.swift */,
+				D46DB7C329ACE0D100645147 /* Store.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D46DB7B229A7931400645147 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				D46DB7B329A7933E00645147 /* ECDictInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		D46DB7B529A79E9000645147 /* Injected */ = {
+			isa = PBXGroup;
+			children = (
+				D46DB7B629A79EA100645147 /* InteractorsContainer.swift */,
+				D46DB7B829A7A00B00645147 /* DependencyInjector.swift */,
+				D46DB7C129ACDFB000645147 /* AppState.swift */,
+			);
+			path = Injected;
+			sourceTree = "<group>";
+		};
+		D46DB7BE29AC989500645147 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				D46DB7BF29AC98A500645147 /* AppEnvironment.swift */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 		D4AA7B9229A5AE4400CC463A = {
@@ -123,6 +165,10 @@
 		D4AA7B9D29A5AE4400CC463A /* Wordy */ = {
 			isa = PBXGroup;
 			children = (
+				D46DB7C529AE299800645147 /* Info.plist */,
+				D46DB7BE29AC989500645147 /* System */,
+				D46DB7B529A79E9000645147 /* Injected */,
+				D46DB7B229A7931400645147 /* Interactors */,
 				D46DB7AB29A750DC00645147 /* Utilities */,
 				D4AA7BCE29A5B30900CC463A /* Models */,
 				D4AA7BCD29A5B2D500CC463A /* Repositories */,
@@ -155,6 +201,7 @@
 			children = (
 				D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */,
 				D4AA7BA029A5AE4400CC463A /* ContentView.swift */,
+				D46DB7BC29AC943500645147 /* WordList.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -328,8 +375,15 @@
 				D46DB7A629A5BA2300645147 /* RepoError.swift in Sources */,
 				D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */,
 				D46DB7A829A5BA2800645147 /* ECDictRepo.swift in Sources */,
+				D46DB7C429ACE0D100645147 /* Store.swift in Sources */,
 				D46DB7A329A5B9FD00645147 /* Word.swift in Sources */,
+				D46DB7B929A7A00B00645147 /* DependencyInjector.swift in Sources */,
+				D46DB7B429A7933E00645147 /* ECDictInteractor.swift in Sources */,
+				D46DB7C229ACDFB000645147 /* AppState.swift in Sources */,
+				D46DB7B729A79EA100645147 /* InteractorsContainer.swift in Sources */,
+				D46DB7C029AC98A500645147 /* AppEnvironment.swift in Sources */,
 				D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */,
+				D46DB7BD29AC943500645147 /* WordList.swift in Sources */,
 				D46DB7AF29A752EA00645147 /* CancelBag.swift in Sources */,
 				D46DB7AD29A750F100645147 /* Loadable.swift in Sources */,
 				D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */,
@@ -495,7 +549,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Wordy/Resources\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Wordy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -523,7 +577,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Wordy/Resources\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Wordy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

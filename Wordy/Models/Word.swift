@@ -84,8 +84,10 @@ public struct Word: Decodable {
     var isOxfordWord: Bool {
         return oxford == "1"
     }
+}
 
-    static var mocked: Word {
+extension Word {
+    static var mockedWord: Word {
         return Word(
             tag: "cet6 ky ielts gre",
             definition: "n. a sharp strain on muscles or ligaments\\nn. a hand tool that is used to hold or twist a nut or bolt\\nv. twist or pull violently or suddenly, especially so as to remove (something) from that to which it is attached or from where it originates\\nv. make a sudden twisting motion",
@@ -101,5 +103,9 @@ public struct Word: Decodable {
             detail: nil,
             audio: nil
         )
+    }
+
+    static var mockedWordList: [Word] {
+        return [mockedWord, mockedWord]
     }
 }
