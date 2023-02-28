@@ -67,6 +67,7 @@
 		D46DB7BF29AC98A500645147 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D46DB7C129ACDFB000645147 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D46DB7C329ACE0D100645147 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		D46DB7C529AE299800645147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D4AA7B9B29A5AE4400CC463A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyApp.swift; sourceTree = "<group>"; };
 		D4AA7BA029A5AE4400CC463A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -164,6 +165,7 @@
 		D4AA7B9D29A5AE4400CC463A /* Wordy */ = {
 			isa = PBXGroup;
 			children = (
+				D46DB7C529AE299800645147 /* Info.plist */,
 				D46DB7BE29AC989500645147 /* System */,
 				D46DB7B529A79E9000645147 /* Injected */,
 				D46DB7B229A7931400645147 /* Interactors */,
@@ -547,7 +549,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Wordy/Resources\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Wordy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -575,7 +577,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Wordy/Resources\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Wordy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
