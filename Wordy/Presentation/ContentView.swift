@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let environment: AppEnvironment
+    private let container: DIContainer
+
+    @State private(set) var connection: Loadable<Void>
+
+    init() {
+        environment = AppEnvironment.bootstrap()
+        container = environment.container
+        _connection = .init(initialValue: .notRequested)
+    }
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        content.onAppear(perform: connect)
+    }
+}
+
+private extension ContentView {
+    @ViewBuilder var content: some View {
+        switch connection {
+        case .loaded:
+            WordList().environment(\.injected, container)
+        default:
+            Text(connection.desc)
         }
-        .padding()
+    }
+
+    func connect() {
+        container.interactors.dictInteractor.connect($connection)
     }
 }
 
