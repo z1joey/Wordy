@@ -28,7 +28,7 @@ private extension ContentView {
     @ViewBuilder var content: some View {
         switch connection {
         case .loaded:
-            WordList().environment(\.injected, container)
+            TagList().environment(\.injected, container)
         default:
             Text(connection.desc)
         }

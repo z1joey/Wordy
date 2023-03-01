@@ -109,3 +109,9 @@ extension Word {
         return [mockedWord, mockedWord]
     }
 }
+
+extension Word: Identifiable {
+    public var id: String {
+        return word
+    }
+}
