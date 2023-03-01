@@ -13,24 +13,28 @@ struct ContentView: View {
 
     @State private(set) var connection: Loadable<Void>
 
-    init() {
+    init(connection: Loadable<Void> = .idle) {
         environment = AppEnvironment.bootstrap()
         container = environment.container
-        _connection = .init(initialValue: .notRequested)
+        _connection = .init(initialValue: connection)
     }
 
     var body: some View {
-        content.onAppear(perform: connect)
+        content
     }
 }
 
 private extension ContentView {
     @ViewBuilder var content: some View {
         switch connection {
+        case .idle:
+            IdleView(perform: connect)
+        case .isLoading:
+            LoadingView()
         case .loaded:
             TagList().environment(\.injected, container)
-        default:
-            Text(connection.desc)
+        case .failed(let error):
+            ErrorView(error: error, retryAction: connect)
         }
     }
 
@@ -41,6 +45,9 @@ private extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(connection: .idle)
+        ContentView(connection: .isLoading(last: nil, cancelBag: CancelBag()))
+        ContentView(connection: .loaded(()))
+        ContentView(connection: .failed(testError))
     }
 }

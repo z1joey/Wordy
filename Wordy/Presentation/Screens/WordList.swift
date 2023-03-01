@@ -15,7 +15,7 @@ struct WordList: View {
 
     private var tag: WordTag
 
-    init(tag: WordTag, words: Loadable<[Word]> = .notRequested) {
+    init(tag: WordTag, words: Loadable<[Word]> = .idle) {
         self.tag = tag
         self._words = .init(initialValue: words)
     }
@@ -30,6 +30,10 @@ struct WordList: View {
 private extension WordList {
     @ViewBuilder var content: some View {
         switch words {
+        case .idle:
+            IdleView(perform: loadWords)
+        case .isLoading:
+            LoadingView(title: "Loading \(tag.displayName)")
         case .loaded(let words):
             List(words) { word in
                 Button(word.word) {
@@ -39,8 +43,8 @@ private extension WordList {
                     WordDetail(word: itm)
                 }
             }
-        default:
-            Text(words.desc)
+        case .failed(let error):
+            ErrorView(error: error, retryAction: loadWords)
         }
     }
 
@@ -51,8 +55,11 @@ private extension WordList {
 
 struct WordList_Previews: PreviewProvider {
     static var previews: some View {
+        WordList(tag: WordTag.cet6, words: .idle)
+        WordList(tag: WordTag.gre, words: .isLoading(last: nil, cancelBag: CancelBag()))
+        WordList(tag: WordTag.gaoKao, words: .failed(testError))
         WordList(tag: WordTag.cet4, words: .loaded(Word.mockedWordList))
-        WordList(tag: WordTag.cet4, words: .loaded(Word.mockedWordList))
+        WordList(tag: WordTag.ielts, words: .loaded(Word.mockedWordList))
             .preferredColorScheme(.dark)
     }
 }

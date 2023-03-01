@@ -15,7 +15,7 @@ final class LoadableTests: XCTestCase {
 
     func testLoadableValues() {
         let testValues: [Loadable<Int>] = [
-            .notRequested,
+            .idle,
             .isLoading(last: nil, cancelBag: cancelBag),
             .loaded(1),
             .loaded(2),
@@ -25,7 +25,7 @@ final class LoadableTests: XCTestCase {
         testValues.enumerated().forEach { idx, val in
             switch idx {
             case 0:
-                XCTAssertEqual(val, .notRequested)
+                XCTAssertEqual(val, .idle)
                 XCTAssertNil(val.error)
                 XCTAssertNil(val.value)
             case 1:
