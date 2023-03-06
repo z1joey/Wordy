@@ -112,3 +112,9 @@ public enum WordTag: CaseIterable, Decodable {
         [.zhongKao, .gaoKao, .cet4, .cet6, .ky, .toefl, .ielts, .gre, .collins(stars: 1), .collins(stars: 2), .collins(stars: 3), .collins(stars: 4), .collins(stars: 5), .oxford]
     }
 }
+
+extension WordTag: Identifiable {
+    public var id: String {
+        return displayName
+    }
+}

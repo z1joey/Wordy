@@ -11,11 +11,11 @@ import SwiftUI
 typealias LoadableSubject<Value> = Binding<Loadable<Value>>
 
 enum Loadable<T> {
-    case notRequested
+    case idle
     case isLoading(last: T?, cancelBag: CancelBag)
     case loaded(T)
     case failed(Error)
-    
+
     var value: T? {
         switch self {
         case let .loaded(val):
@@ -26,26 +26,13 @@ enum Loadable<T> {
             return nil
         }
     }
-    
+
     var error: Error? {
         switch self {
         case let .failed(error):
             return error
         default:
             return nil
-        }
-    }
-
-    var desc: String {
-        switch self {
-        case .notRequested:
-            return "not started"
-        case .isLoading:
-            return "is loadind"
-        case .loaded:
-            return "success"
-        case .failed(let error):
-            return "error happened: \(error.localizedDescription)"
         }
     }
 }
@@ -73,7 +60,7 @@ extension Loadable {
 extension Loadable: Equatable where T: Equatable {
     static func == (lhs: Loadable<T>, rhs: Loadable<T>) -> Bool {
         switch (lhs, rhs) {
-        case (.notRequested, .notRequested): return true
+        case (.idle, .idle): return true
         case let (.isLoading(lhsV, _), .isLoading(rhsV, _)): return lhsV == rhsV
         case let (.loaded(lhsV), .loaded(rhsV)): return lhsV == rhsV
         case let (.failed(lhsE), .failed(rhsE)):
