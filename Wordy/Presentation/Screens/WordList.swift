@@ -24,6 +24,9 @@ struct WordList: View {
         content
             .onAppear(perform: loadWords)
             .navigationTitle(tag.displayName)
+            .sheet(item: $selected) { itm in
+                WordDetail(word: itm)
+            }
     }
 }
 
@@ -38,9 +41,6 @@ private extension WordList {
             List(words) { word in
                 Button(word.word) {
                     selected = word
-                }
-                .sheet(item: $selected) { itm in
-                    WordDetail(word: itm)
                 }
             }
         case .failed(let error):
