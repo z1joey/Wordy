@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-typealias LoadableSubject<Value> = Binding<Loadable<Value>>
-
 enum Loadable<T> {
     case idle
     case isLoading(last: T?, cancelBag: CancelBag)
