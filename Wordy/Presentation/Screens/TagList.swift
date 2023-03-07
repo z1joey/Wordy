@@ -44,7 +44,7 @@ private extension TagList {
         injected
             .interactors
             .dict
-            .connect($connection)
+            .load($connection)
     }
 }
 
