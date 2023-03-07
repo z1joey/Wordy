@@ -9,7 +9,6 @@ import Foundation
 
 struct AppState {
     var routing = ViewRouting()
-    var system = System()
     var permissions = Permissions()
 }
 
@@ -17,10 +16,6 @@ struct AppState {
 extension AppState {
     struct ViewRouting {
         var wordList = WordList.Routing()
-    }
-
-    struct System {
-        var isActive: Bool = false
     }
 }
 
@@ -34,8 +29,6 @@ extension AppState {
 
 extension AppState {
     static var preview: AppState {
-        var state = AppState()
-        state.system.isActive = true
-        return state
+        return AppState()
     }
 }
