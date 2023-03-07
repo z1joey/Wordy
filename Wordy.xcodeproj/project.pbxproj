@@ -28,6 +28,7 @@
 		D46DB7CD29AF86B700645147 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7CC29AF86B700645147 /* ErrorView.swift */; };
 		D46DB7CF29AF8ACF00645147 /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7CE29AF8ACF00645147 /* IdleView.swift */; };
 		D46DB7D129AFA96E00645147 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7D029AFA96E00645147 /* LoadingView.swift */; };
+		D46DB7D729B654A600645147 /* Binding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7D629B654A600645147 /* Binding+.swift */; };
 		D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */; };
 		D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BA029A5AE4400CC463A /* ContentView.swift */; };
 		D4AA7BA329A5AE4500CC463A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AA7BA229A5AE4500CC463A /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		D46DB7CC29AF86B700645147 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		D46DB7CE29AF8ACF00645147 /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
 		D46DB7D029AFA96E00645147 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		D46DB7D629B654A600645147 /* Binding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+.swift"; sourceTree = "<group>"; };
 		D4AA7B9B29A5AE4400CC463A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyApp.swift; sourceTree = "<group>"; };
 		D4AA7BA029A5AE4400CC463A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D46DB7AC29A750F100645147 /* Loadable.swift */,
 				D46DB7AE29A752EA00645147 /* CancelBag.swift */,
 				D46DB7C329ACE0D100645147 /* Store.swift */,
+				D46DB7D629B654A600645147 /* Binding+.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */,
 				D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */,
 				D46DB7CF29AF8ACF00645147 /* IdleView.swift in Sources */,
+				D46DB7D729B654A600645147 /* Binding+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

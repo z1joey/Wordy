@@ -14,7 +14,7 @@ struct AppState {
 
 extension AppState {
     struct ViewRouting {
-        var wordList = TagList()
+        var wordList = WordList.Routing()
     }
 
     struct System {

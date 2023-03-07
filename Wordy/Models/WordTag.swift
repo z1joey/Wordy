@@ -113,7 +113,7 @@ public enum WordTag: CaseIterable, Decodable {
     }
 }
 
-extension WordTag: Identifiable {
+extension WordTag: Identifiable, Equatable {
     public var id: String {
         return displayName
     }

@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Combine
 
 struct WordList: View {
     @Environment(\.injected) private var injected: DIContainer
 
     @State private(set) var words: Loadable<[Word]>
-    @State private var selected: Word? = nil
+    @State private var routingState: Routing = .init()
+    private var routingBinding: Binding<Routing> {
+        $routingState.dispatched(to: injected.appState, \.routing.wordList)
+    }
 
     private var tag: WordTag
 
@@ -24,8 +28,9 @@ struct WordList: View {
         content
             .onAppear(perform: loadWords)
             .navigationTitle(tag.displayName)
-            .sheet(item: $selected) { itm in
-                WordDetail(word: itm)
+            .onReceive(routingUpdate) { self.routingState = $0 }
+            .sheet(item: routingBinding.word) { itm in
+                WordDetail(word: routingBinding.word)
             }
     }
 }
@@ -40,7 +45,7 @@ private extension WordList {
         case .loaded(let words):
             List(words) { word in
                 Button(word.word) {
-                    selected = word
+                    showWordDetailSheet(word)
                 }
             }
         case .failed(let error):
@@ -50,6 +55,22 @@ private extension WordList {
 
     func loadWords() {
         injected.interactors.dictInteractor.load($words, forTag: tag.code)
+    }
+
+    func showWordDetailSheet(_ word: Word) {
+        injected.appState.value[keyPath: \.routing.wordList.word] = word
+    }
+}
+
+private extension WordList {
+    var routingUpdate: AnyPublisher<Routing, Never> {
+        injected.appState.map(\.routing.wordList).removeDuplicates().eraseToAnyPublisher()
+    }
+}
+
+extension WordList {
+    struct Routing: Equatable {
+        var word: Word?
     }
 }
 
