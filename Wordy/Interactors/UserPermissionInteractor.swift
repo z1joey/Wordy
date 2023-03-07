@@ -8,6 +8,7 @@
 import Foundation
 import UserNotifications
 import Speech
+import Combine
 
 enum Permission {
     case pushNotifications
@@ -39,10 +40,10 @@ protocol USER_PERMISSION_INTERACTOR {
 }
 
 final class UserPermissionInteractor: USER_PERMISSION_INTERACTOR {
-    private let appState: Store<AppState>
+    private let appState: CurrentValueSubject<AppState, Never>
     private let openAppSettings: () -> Void
 
-    init(appState: Store<AppState>, openAppSettings: @escaping () -> Void) {
+    init(appState: CurrentValueSubject<AppState, Never>, openAppSettings: @escaping () -> Void) {
         self.appState = appState
         self.openAppSettings = openAppSettings
     }

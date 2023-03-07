@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 extension Binding where Value: Equatable {
-    func dispatched<State>(to state: Store<State>, _ keyPath: WritableKeyPath<State, Value>) -> Self {
+    func dispatched<State>(to state: CurrentValueSubject<State, Never>, _ keyPath: WritableKeyPath<State, Value>) -> Self {
         return onSet { state.value[keyPath: keyPath] = $0 }
     }
 

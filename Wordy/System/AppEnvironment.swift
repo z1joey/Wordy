@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import UIKit
 
 struct AppEnvironment {
@@ -14,7 +15,7 @@ struct AppEnvironment {
 
 extension AppEnvironment {
     static func bootstrap() -> AppEnvironment {
-        let appState = Store(AppState())
+        let appState = CurrentValueSubject<AppState, Never>(AppState())
         let dictRepo = ECDcitRepo()
         let dictInteractor = ECDictInteractor(dictRepo: dictRepo)
 

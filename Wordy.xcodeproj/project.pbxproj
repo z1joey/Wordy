@@ -22,7 +22,6 @@
 		D46DB7BD29AC943500645147 /* TagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7BC29AC943500645147 /* TagList.swift */; };
 		D46DB7C029AC98A500645147 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7BF29AC98A500645147 /* AppEnvironment.swift */; };
 		D46DB7C229ACDFB000645147 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C129ACDFB000645147 /* AppState.swift */; };
-		D46DB7C429ACE0D100645147 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C329ACE0D100645147 /* Store.swift */; };
 		D46DB7C729AF506600645147 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C629AF506600645147 /* WordList.swift */; };
 		D46DB7CA29AF752200645147 /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C929AF752200645147 /* WordDetail.swift */; };
 		D46DB7CD29AF86B700645147 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7CC29AF86B700645147 /* ErrorView.swift */; };
@@ -76,7 +75,6 @@
 		D46DB7BC29AC943500645147 /* TagList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagList.swift; sourceTree = "<group>"; };
 		D46DB7BF29AC98A500645147 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D46DB7C129ACDFB000645147 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		D46DB7C329ACE0D100645147 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D46DB7C529AE299800645147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D46DB7C629AF506600645147 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 		D46DB7C929AF752200645147 /* WordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				D46DB7AC29A750F100645147 /* Loadable.swift */,
 				D46DB7AE29A752EA00645147 /* CancelBag.swift */,
 				D46DB7D429B5EC4F00645147 /* SpeechEngine.swift */,
-				D46DB7C329ACE0D100645147 /* Store.swift */,
 				D46DB7D629B654A600645147 /* Binding+.swift */,
 			);
 			path = Utilities;
@@ -426,7 +423,6 @@
 				D46DB7DB29B72AB400645147 /* SpeechInteractor.swift in Sources */,
 				D46DB7A829A5BA2800645147 /* ECDictRepo.swift in Sources */,
 				D46DB7D129AFA96E00645147 /* LoadingView.swift in Sources */,
-				D46DB7C429ACE0D100645147 /* Store.swift in Sources */,
 				D46DB7A329A5B9FD00645147 /* Word.swift in Sources */,
 				D46DB7DF29B7670D00645147 /* UserPermissionInteractor.swift in Sources */,
 				D46DB7B929A7A00B00645147 /* DependencyInjector.swift in Sources */,
