@@ -15,6 +15,12 @@ protocol EC_DICT_INTERACTOR {
 }
 
 struct ECDictInteractor: EC_DICT_INTERACTOR {
+    private let dict: EC_DICT_REPO
+
+    init(dictRepo: EC_DICT_REPO) {
+        self.dict = dictRepo
+    }
+
     func connect(_ connection: LoadableSubject<Void>) {
         let cancelBag = CancelBag()
         connection.wrappedValue.setIsLoading(cancelBag: cancelBag)
@@ -31,12 +37,6 @@ struct ECDictInteractor: EC_DICT_INTERACTOR {
             .store(in: cancelBag)
     }
 
-    private let dict: EC_DICT_REPO
-
-    init(dictRepo: EC_DICT_REPO) {
-        self.dict = dictRepo
-    }
-
     func load(_ detail: LoadableSubject<Word>, forWord word: String) {
         let cancelBag = CancelBag()
         detail.wrappedValue.setIsLoading(cancelBag: cancelBag)
@@ -50,7 +50,7 @@ struct ECDictInteractor: EC_DICT_INTERACTOR {
             .sinkToLoadable { detail.wrappedValue = $0 }
             .store(in: cancelBag)
     }
-    
+
     func load(_ wordList: LoadableSubject<[Word]>, forTag tag: String) {
         let cancelBag = CancelBag()
         wordList.wrappedValue.setIsLoading(cancelBag: cancelBag)

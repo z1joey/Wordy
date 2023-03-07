@@ -9,10 +9,16 @@ import Foundation
 
 extension DIContainer {
     struct Interactors {
-        let dictInteractor: EC_DICT_INTERACTOR
+        let dict: EC_DICT_INTERACTOR
+        let speech: SPEECH_INTERACTOR
+        let permission: USER_PERMISSION_INTERACTOR
 
         static var stub: Self {
-            .init(dictInteractor: StubECDictInteractor())
+            .init(
+                dict: StubECDictInteractor(),
+                speech: StubSpeechInteractor(),
+                permission: StubUserPermissionInteractor()
+            )
         }
     }
 }

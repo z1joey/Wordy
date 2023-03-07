@@ -6,48 +6,51 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
-    private let environment: AppEnvironment
-    private let container: DIContainer
-
-    @State private(set) var connection: Loadable<Void>
-
-    init(connection: Loadable<Void> = .idle) {
-        environment = AppEnvironment.bootstrap()
-        container = environment.container
-        _connection = .init(initialValue: connection)
-    }
+    @Environment(\.injected) private var injected: DIContainer
+    @State private var canRequestSpeechPermission: Bool = false
 
     var body: some View {
-        content
+        TabView {
+            TagList()
+                .environment(\.injected, injected)
+                .tabItem {
+                    Label("WordList", systemImage: "list.dash")
+                }
+
+            Quiz()
+                .environment(\.injected, injected)
+                .tabItem {
+                    Label("Practice", systemImage: "square.and.pencil")
+                }
+        }
+        .onReceive(canRequestSpeechPermissionUpdate, perform: { canRequest in
+            if canRequest { requestSpeechPermission() }
+        })
     }
 }
 
 private extension ContentView {
-    @ViewBuilder var content: some View {
-        switch connection {
-        case .idle:
-            IdleView(perform: connect)
-        case .isLoading:
-            LoadingView()
-        case .loaded:
-            TagList().environment(\.injected, container)
-        case .failed(let error):
-            ErrorView(error: error, retryAction: connect)
-        }
+    var canRequestSpeechPermissionUpdate: AnyPublisher<Bool, Never> {
+        injected
+            .appState
+            .map(\.permissions.speech)
+            .map { $0 == .notRequested || $0 == .denied }
+            .eraseToAnyPublisher()
     }
 
-    func connect() {
-        container.interactors.dictInteractor.connect($connection)
+    func requestSpeechPermission() {
+        injected
+            .interactors
+            .permission
+            .request(permission: .speechRecognizer)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(connection: .idle)
-        ContentView(connection: .isLoading(last: nil, cancelBag: CancelBag()))
-        ContentView(connection: .loaded(()))
-        ContentView(connection: .failed(testError))
+        ContentView()
     }
 }

@@ -10,8 +10,10 @@ import Foundation
 struct AppState {
     var routing = ViewRouting()
     var system = System()
+    var permissions = Permissions()
 }
 
+// MARK: Routing
 extension AppState {
     struct ViewRouting {
         var wordList = WordList.Routing()
@@ -19,6 +21,14 @@ extension AppState {
 
     struct System {
         var isActive: Bool = false
+    }
+}
+
+// MARK: Permission
+extension AppState {
+    struct Permissions: Equatable {
+        var push: Permission.Status = .unknown
+        var speech: Permission.Status = .unknown
     }
 }
 

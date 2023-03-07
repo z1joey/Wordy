@@ -26,12 +26,6 @@ struct WordList: View {
 
     var body: some View {
         content
-            .onAppear(perform: loadWords)
-            .navigationTitle(tag.displayName)
-            .onReceive(routingUpdate) { self.routingState = $0 }
-            .sheet(item: routingBinding.word) { itm in
-                WordDetail(word: routingBinding.word)
-            }
     }
 }
 
@@ -48,13 +42,21 @@ private extension WordList {
                     showWordDetailSheet(word)
                 }
             }
+            .navigationTitle(tag.displayName)
+            .onReceive(routingUpdate) { self.routingState = $0 }
+            .sheet(item: routingBinding.word) { itm in
+                WordDetail(word: routingBinding.word)
+            }
         case .failed(let error):
             ErrorView(error: error, retryAction: loadWords)
         }
     }
 
     func loadWords() {
-        injected.interactors.dictInteractor.load($words, forTag: tag.code)
+        injected
+            .interactors
+            .dict
+            .load($words, forTag: tag.code)
     }
 
     func showWordDetailSheet(_ word: Word) {
