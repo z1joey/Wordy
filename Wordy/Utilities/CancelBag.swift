@@ -14,6 +14,10 @@ final class CancelBag {
     func cancel() {
         subscribers.removeAll()
     }
+
+    deinit {
+        print("CancelBag Destroyed")
+    }
 }
 
 extension AnyCancellable {

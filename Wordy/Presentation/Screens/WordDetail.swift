@@ -8,19 +8,15 @@
 import SwiftUI
 
 struct WordDetail: View {
-    @Environment(\.dismiss) var dismiss
-
-    private let word: Word
-
-    init(word: Word) {
-        self.word = word
-    }
+    @Binding var word: Word?
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(word.word)
+            if let text = word?.word {
+                Text(text)
+            }
             Button("Press to dismiss") {
-                dismiss()
+                word = nil
             }
         }
     }
@@ -28,7 +24,7 @@ struct WordDetail: View {
 
 struct WordDetail_Previews: PreviewProvider {
     static var previews: some View {
-        WordDetail(word: .mockedWord)
-        WordDetail(word: .mockedWord).preferredColorScheme(.dark)
+        WordDetail(word: .constant(.mockedWord))
+        WordDetail(word: .constant(.mockedWord)).preferredColorScheme(.dark)
     }
 }

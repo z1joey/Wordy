@@ -7,18 +7,19 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct DIContainer: EnvironmentKey {
-    let appState: Store<AppState>
+    let appState: CurrentValueSubject<AppState, Never>
     let interactors: Interactors
 
-    init(appState: Store<AppState>, interactors: Interactors) {
+    init(appState: CurrentValueSubject<AppState, Never>, interactors: Interactors) {
         self.appState = appState
         self.interactors = interactors
     }
 
     init(appState: AppState, interactors: Interactors) {
-        self.init(appState: Store<AppState>(appState), interactors: interactors)
+        self.init(appState: CurrentValueSubject<AppState, Never>(appState), interactors: interactors)
     }
 
     static var defaultValue: Self { Self.default }

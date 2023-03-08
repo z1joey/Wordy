@@ -9,13 +9,19 @@ import Foundation
 import Combine
 
 protocol EC_DICT_INTERACTOR {
-    func connect(_ connection: LoadableSubject<Void>)
+    func load(_ connection: LoadableSubject<Void>)
     func load(_ detail: LoadableSubject<Word>, forWord word: String)
     func load(_ wordList: LoadableSubject<[Word]>, forTag tag: String)
 }
 
 struct ECDictInteractor: EC_DICT_INTERACTOR {
-    func connect(_ connection: LoadableSubject<Void>) {
+    private let dict: EC_DICT_REPO
+
+    init(dictRepo: EC_DICT_REPO) {
+        self.dict = dictRepo
+    }
+
+    func load(_ connection: LoadableSubject<Void>) {
         let cancelBag = CancelBag()
         connection.wrappedValue.setIsLoading(cancelBag: cancelBag)
 
@@ -31,12 +37,6 @@ struct ECDictInteractor: EC_DICT_INTERACTOR {
             .store(in: cancelBag)
     }
 
-    private let dict: EC_DICT_REPO
-
-    init(dictRepo: EC_DICT_REPO) {
-        self.dict = dictRepo
-    }
-
     func load(_ detail: LoadableSubject<Word>, forWord word: String) {
         let cancelBag = CancelBag()
         detail.wrappedValue.setIsLoading(cancelBag: cancelBag)
@@ -50,7 +50,7 @@ struct ECDictInteractor: EC_DICT_INTERACTOR {
             .sinkToLoadable { detail.wrappedValue = $0 }
             .store(in: cancelBag)
     }
-    
+
     func load(_ wordList: LoadableSubject<[Word]>, forTag tag: String) {
         let cancelBag = CancelBag()
         wordList.wrappedValue.setIsLoading(cancelBag: cancelBag)
@@ -67,7 +67,7 @@ struct ECDictInteractor: EC_DICT_INTERACTOR {
 }
 
 struct StubECDictInteractor: EC_DICT_INTERACTOR {
-    func connect(_ connection: LoadableSubject<Void>) {}
+    func load(_ connection: LoadableSubject<Void>) {}
     func load(_ detail: LoadableSubject<Word>, forWord word: String) {}
     func load(_ wordList: LoadableSubject<[Word]>, forTag tag: String) {}
 }

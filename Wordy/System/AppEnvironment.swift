@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import UIKit
 
 struct AppEnvironment {
     let container: DIContainer
@@ -13,10 +15,22 @@ struct AppEnvironment {
 
 extension AppEnvironment {
     static func bootstrap() -> AppEnvironment {
-        let appState = Store(AppState())
+        let appState = CurrentValueSubject<AppState, Never>(AppState())
         let dictRepo = ECDcitRepo()
         let dictInteractor = ECDictInteractor(dictRepo: dictRepo)
-        let interactors = DIContainer.Interactors(dictInteractor: dictInteractor)
+
+        let speechInteractor = SpeechInteractor()
+        let permissionInteractor = UserPermissionInteractor(appState: appState, openAppSettings: {
+            URL(string: UIApplication.openSettingsURLString).flatMap {
+                UIApplication.shared.open($0, options: [:], completionHandler: nil)
+            }
+        })
+
+        let interactors = DIContainer.Interactors(
+            dict: dictInteractor,
+            speech: speechInteractor,
+            permission: permissionInteractor
+        )
 
         return .init(container: DIContainer(appState: appState, interactors: interactors))
     }

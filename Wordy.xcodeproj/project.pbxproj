@@ -22,12 +22,16 @@
 		D46DB7BD29AC943500645147 /* TagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7BC29AC943500645147 /* TagList.swift */; };
 		D46DB7C029AC98A500645147 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7BF29AC98A500645147 /* AppEnvironment.swift */; };
 		D46DB7C229ACDFB000645147 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C129ACDFB000645147 /* AppState.swift */; };
-		D46DB7C429ACE0D100645147 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C329ACE0D100645147 /* Store.swift */; };
 		D46DB7C729AF506600645147 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C629AF506600645147 /* WordList.swift */; };
 		D46DB7CA29AF752200645147 /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7C929AF752200645147 /* WordDetail.swift */; };
 		D46DB7CD29AF86B700645147 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7CC29AF86B700645147 /* ErrorView.swift */; };
 		D46DB7CF29AF8ACF00645147 /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7CE29AF8ACF00645147 /* IdleView.swift */; };
 		D46DB7D129AFA96E00645147 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7D029AFA96E00645147 /* LoadingView.swift */; };
+		D46DB7D529B5EC4F00645147 /* SpeechEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7D429B5EC4F00645147 /* SpeechEngine.swift */; };
+		D46DB7D729B654A600645147 /* Binding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7D629B654A600645147 /* Binding+.swift */; };
+		D46DB7DB29B72AB400645147 /* SpeechInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7DA29B72AB400645147 /* SpeechInteractor.swift */; };
+		D46DB7DD29B7372A00645147 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7DC29B7372A00645147 /* Quiz.swift */; };
+		D46DB7DF29B7670D00645147 /* UserPermissionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7DE29B7670D00645147 /* UserPermissionInteractor.swift */; };
 		D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */; };
 		D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BA029A5AE4400CC463A /* ContentView.swift */; };
 		D4AA7BA329A5AE4500CC463A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AA7BA229A5AE4500CC463A /* Assets.xcassets */; };
@@ -71,13 +75,17 @@
 		D46DB7BC29AC943500645147 /* TagList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagList.swift; sourceTree = "<group>"; };
 		D46DB7BF29AC98A500645147 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D46DB7C129ACDFB000645147 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		D46DB7C329ACE0D100645147 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D46DB7C529AE299800645147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D46DB7C629AF506600645147 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 		D46DB7C929AF752200645147 /* WordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
 		D46DB7CC29AF86B700645147 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		D46DB7CE29AF8ACF00645147 /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
 		D46DB7D029AFA96E00645147 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		D46DB7D429B5EC4F00645147 /* SpeechEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechEngine.swift; sourceTree = "<group>"; };
+		D46DB7D629B654A600645147 /* Binding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+.swift"; sourceTree = "<group>"; };
+		D46DB7DA29B72AB400645147 /* SpeechInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechInteractor.swift; sourceTree = "<group>"; };
+		D46DB7DC29B7372A00645147 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		D46DB7DE29B7670D00645147 /* UserPermissionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPermissionInteractor.swift; sourceTree = "<group>"; };
 		D4AA7B9B29A5AE4400CC463A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyApp.swift; sourceTree = "<group>"; };
 		D4AA7BA029A5AE4400CC463A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,7 +129,8 @@
 			children = (
 				D46DB7AC29A750F100645147 /* Loadable.swift */,
 				D46DB7AE29A752EA00645147 /* CancelBag.swift */,
-				D46DB7C329ACE0D100645147 /* Store.swift */,
+				D46DB7D429B5EC4F00645147 /* SpeechEngine.swift */,
+				D46DB7D629B654A600645147 /* Binding+.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -130,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				D46DB7B329A7933E00645147 /* ECDictInteractor.swift */,
+				D46DB7DA29B72AB400645147 /* SpeechInteractor.swift */,
+				D46DB7DE29B7670D00645147 /* UserPermissionInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 				D46DB7BC29AC943500645147 /* TagList.swift */,
 				D46DB7C629AF506600645147 /* WordList.swift */,
 				D46DB7C929AF752200645147 /* WordDetail.swift */,
+				D46DB7DC29B7372A00645147 /* Quiz.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -405,14 +417,17 @@
 			files = (
 				D46DB7CA29AF752200645147 /* WordDetail.swift in Sources */,
 				D46DB7A629A5BA2300645147 /* RepoError.swift in Sources */,
+				D46DB7DD29B7372A00645147 /* Quiz.swift in Sources */,
 				D46DB7CD29AF86B700645147 /* ErrorView.swift in Sources */,
 				D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */,
+				D46DB7DB29B72AB400645147 /* SpeechInteractor.swift in Sources */,
 				D46DB7A829A5BA2800645147 /* ECDictRepo.swift in Sources */,
 				D46DB7D129AFA96E00645147 /* LoadingView.swift in Sources */,
-				D46DB7C429ACE0D100645147 /* Store.swift in Sources */,
 				D46DB7A329A5B9FD00645147 /* Word.swift in Sources */,
+				D46DB7DF29B7670D00645147 /* UserPermissionInteractor.swift in Sources */,
 				D46DB7B929A7A00B00645147 /* DependencyInjector.swift in Sources */,
 				D46DB7B429A7933E00645147 /* ECDictInteractor.swift in Sources */,
+				D46DB7D529B5EC4F00645147 /* SpeechEngine.swift in Sources */,
 				D46DB7C229ACDFB000645147 /* AppState.swift in Sources */,
 				D46DB7B729A79EA100645147 /* InteractorsContainer.swift in Sources */,
 				D46DB7C729AF506600645147 /* WordList.swift in Sources */,
@@ -424,6 +439,7 @@
 				D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */,
 				D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */,
 				D46DB7CF29AF8ACF00645147 /* IdleView.swift in Sources */,
+				D46DB7D729B654A600645147 /* Binding+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

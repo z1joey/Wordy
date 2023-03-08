@@ -110,7 +110,7 @@ extension Word {
     }
 }
 
-extension Word: Identifiable {
+extension Word: Identifiable, Equatable {
     public var id: String {
         return word
     }
