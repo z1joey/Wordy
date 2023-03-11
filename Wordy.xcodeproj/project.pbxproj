@@ -32,6 +32,8 @@
 		D46DB7DB29B72AB400645147 /* SpeechInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7DA29B72AB400645147 /* SpeechInteractor.swift */; };
 		D46DB7DD29B7372A00645147 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7DC29B7372A00645147 /* Quiz.swift */; };
 		D46DB7DF29B7670D00645147 /* UserPermissionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7DE29B7670D00645147 /* UserPermissionInteractor.swift */; };
+		D46DB7E429BB412700645147 /* FlyingWords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7E229BB412700645147 /* FlyingWords.xcdatamodeld */; };
+		D46DB7E629BB428D00645147 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7E529BB428D00645147 /* DataController.swift */; };
 		D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */; };
 		D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BA029A5AE4400CC463A /* ContentView.swift */; };
 		D4AA7BA329A5AE4500CC463A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AA7BA229A5AE4500CC463A /* Assets.xcassets */; };
@@ -86,6 +88,8 @@
 		D46DB7DA29B72AB400645147 /* SpeechInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechInteractor.swift; sourceTree = "<group>"; };
 		D46DB7DC29B7372A00645147 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		D46DB7DE29B7670D00645147 /* UserPermissionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPermissionInteractor.swift; sourceTree = "<group>"; };
+		D46DB7E329BB412700645147 /* FlyingWords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlyingWords.xcdatamodel; sourceTree = "<group>"; };
+		D46DB7E529BB428D00645147 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		D4AA7B9B29A5AE4400CC463A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyApp.swift; sourceTree = "<group>"; };
 		D4AA7BA029A5AE4400CC463A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 			children = (
 				D4AA7BAF29A5AE4500CC463A /* WordyTests.swift */,
 				D46DB7B029A78BD000645147 /* LoadableTests.swift */,
+				D44C1EAD29BD02E90050FED3 /* DataControllerTests.swift */,
 			);
 			path = WordyTests;
 			sourceTree = "<group>";
@@ -262,6 +267,8 @@
 		D4AA7BCD29A5B2D500CC463A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				D46DB7E229BB412700645147 /* FlyingWords.xcdatamodeld */,
+				D46DB7E529BB428D00645147 /* DataController.swift */,
 				D46DB7A729A5BA2800645147 /* ECDictRepo.swift */,
 				D46DB7A529A5BA2300645147 /* RepoError.swift */,
 			);
@@ -418,7 +425,9 @@
 				D46DB7CA29AF752200645147 /* WordDetail.swift in Sources */,
 				D46DB7A629A5BA2300645147 /* RepoError.swift in Sources */,
 				D46DB7DD29B7372A00645147 /* Quiz.swift in Sources */,
+				D46DB7E629BB428D00645147 /* DataController.swift in Sources */,
 				D46DB7CD29AF86B700645147 /* ErrorView.swift in Sources */,
+				D46DB7E429BB412700645147 /* FlyingWords.xcdatamodeld in Sources */,
 				D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */,
 				D46DB7DB29B72AB400645147 /* SpeechInteractor.swift in Sources */,
 				D46DB7A829A5BA2800645147 /* ECDictRepo.swift in Sources */,
@@ -778,6 +787,19 @@
 			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D46DB7E229BB412700645147 /* FlyingWords.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D46DB7E329BB412700645147 /* FlyingWords.xcdatamodel */,
+			);
+			currentVersion = D46DB7E329BB412700645147 /* FlyingWords.xcdatamodel */;
+			path = FlyingWords.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D4AA7B9329A5AE4400CC463A /* Project object */;
 }
