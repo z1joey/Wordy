@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D44C1EAF29BD034A0050FED3 /* DataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C1EAD29BD02E90050FED3 /* DataControllerTests.swift */; };
 		D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB79F29A5B9FD00645147 /* WordChange.swift */; };
 		D46DB7A329A5B9FD00645147 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A029A5B9FD00645147 /* Word.swift */; };
 		D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A129A5B9FD00645147 /* WordTag.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D44C1EAD29BD02E90050FED3 /* DataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataControllerTests.swift; path = WordyTests/DataControllerTests.swift; sourceTree = SOURCE_ROOT; };
 		D46DB79F29A5B9FD00645147 /* WordChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordChange.swift; sourceTree = "<group>"; };
 		D46DB7A029A5B9FD00645147 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		D46DB7A129A5B9FD00645147 /* WordTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTag.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4AA7BB029A5AE4500CC463A /* WordyTests.swift in Sources */,
+				D44C1EAF29BD034A0050FED3 /* DataControllerTests.swift in Sources */,
 				D46DB7B129A78BD000645147 /* LoadableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
