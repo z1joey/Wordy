@@ -26,18 +26,17 @@ struct ContentView: View {
                     Label("Practice", systemImage: "square.and.pencil")
                 }
         }
-        .onReceive(canRequestSpeechPermissionUpdate, perform: { canRequest in
-            if canRequest { requestSpeechPermission() }
-        })
+        .onReceive(canRequestSpeechPermissionUpdate, perform: requestSpeechPermission)
     }
 }
 
 private extension ContentView {
-    var canRequestSpeechPermissionUpdate: AnyPublisher<Bool, Never> {
+    var canRequestSpeechPermissionUpdate: AnyPublisher<Void, Never> {
         injected
             .appState
             .map(\.permissions.speech)
-            .map { $0 == .notRequested || $0 == .denied }
+            .map { $0 == .notRequested }
+            .map { _ in }
             .eraseToAnyPublisher()
     }
 

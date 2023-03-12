@@ -11,7 +11,6 @@
 		D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB79F29A5B9FD00645147 /* WordChange.swift */; };
 		D46DB7A329A5B9FD00645147 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A029A5B9FD00645147 /* Word.swift */; };
 		D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A129A5B9FD00645147 /* WordTag.swift */; };
-		D46DB7A629A5BA2300645147 /* RepoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A529A5BA2300645147 /* RepoError.swift */; };
 		D46DB7A829A5BA2800645147 /* ECDictRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A729A5BA2800645147 /* ECDictRepo.swift */; };
 		D46DB7AA29A5BB5A00645147 /* db_ecdict.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D46DB7A929A5BB5A00645147 /* db_ecdict.sqlite3 */; };
 		D46DB7AD29A750F100645147 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7AC29A750F100645147 /* Loadable.swift */; };
@@ -67,7 +66,6 @@
 		D46DB79F29A5B9FD00645147 /* WordChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordChange.swift; sourceTree = "<group>"; };
 		D46DB7A029A5B9FD00645147 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		D46DB7A129A5B9FD00645147 /* WordTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTag.swift; sourceTree = "<group>"; };
-		D46DB7A529A5BA2300645147 /* RepoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoError.swift; sourceTree = "<group>"; };
 		D46DB7A729A5BA2800645147 /* ECDictRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECDictRepo.swift; sourceTree = "<group>"; };
 		D46DB7A929A5BB5A00645147 /* db_ecdict.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_ecdict.sqlite3; sourceTree = "<group>"; };
 		D46DB7AC29A750F100645147 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
@@ -261,6 +259,7 @@
 			children = (
 				D4AA7BA229A5AE4500CC463A /* Assets.xcassets */,
 				D4AA7BA529A5AE4500CC463A /* Preview Assets.xcassets */,
+				D46DB7E229BB412700645147 /* FlyingWords.xcdatamodeld */,
 				D46DB7A929A5BB5A00645147 /* db_ecdict.sqlite3 */,
 			);
 			path = Resources;
@@ -269,10 +268,8 @@
 		D4AA7BCD29A5B2D500CC463A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				D46DB7E229BB412700645147 /* FlyingWords.xcdatamodeld */,
 				D46DB7E529BB428D00645147 /* DataController.swift */,
 				D46DB7A729A5BA2800645147 /* ECDictRepo.swift */,
-				D46DB7A529A5BA2300645147 /* RepoError.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -425,7 +422,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D46DB7CA29AF752200645147 /* WordDetail.swift in Sources */,
-				D46DB7A629A5BA2300645147 /* RepoError.swift in Sources */,
 				D46DB7DD29B7372A00645147 /* Quiz.swift in Sources */,
 				D46DB7E629BB428D00645147 /* DataController.swift in Sources */,
 				D46DB7CD29AF86B700645147 /* ErrorView.swift in Sources */,

@@ -9,14 +9,14 @@ import Foundation
 import CoreData
 import Combine
 
-protocol PersistentStore {
+protocol PERSISTENT_STORE {
     func count() -> AnyPublisher<Int, Error>
     func fetch() -> AnyPublisher<[Vocabulary], Error>
     func save() -> AnyPublisher<Void, Error>
     func save(word: String) -> AnyPublisher<Void, Error>
 }
 
-struct DataController: PersistentStore {
+struct DataController: PERSISTENT_STORE {
     private let bgQueue = DispatchQueue(label: "coredata")
     private let container: NSPersistentContainer = .init(name: "FlyingWords")
     private let isStoreLoaded = CurrentValueSubject<Bool, Error>(false)
@@ -108,16 +108,19 @@ struct DataController: PersistentStore {
                 if let context = container?.viewContext {
                     let vocabulary = Vocabulary(context: context)
                     vocabulary.word = word
-                    promise(.success(()))
-                } else {
-                    promise(.failure(testError))
+
+                    do {
+                        try context.save()
+                        promise(.success(()))
+                    } catch {
+                        promise(.failure(error))
+                    }
                 }
             }
         }
 
         return onStoreIsReady
             .flatMap { create }
-            .flatMap { save() }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
@@ -125,14 +128,18 @@ struct DataController: PersistentStore {
     func delete(_ vocabulary: Vocabulary) -> AnyPublisher<Void, Error> {
         let delete = Future<Void, Error> { [weak bgQueue, weak container] promise in
             bgQueue?.sync {
-                container?.viewContext.delete(vocabulary)
-                promise(.success(()))
+                do {
+                    container?.viewContext.delete(vocabulary)
+                    try container?.viewContext.save()
+                    promise(.success(()))
+                } catch {
+                    promise(.failure(error))
+                }
             }
         }
 
         return onStoreIsReady
             .flatMap { delete }
-            .flatMap { save() }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
