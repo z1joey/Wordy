@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D44C1EAF29BD034A0050FED3 /* DataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C1EAD29BD02E90050FED3 /* DataControllerTests.swift */; };
 		D44D782429BD59B80060C8D5 /* UserDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D782329BD59B80060C8D5 /* UserDataInteractor.swift */; };
+		D44D782629BD64A80060C8D5 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D782529BD64A80060C8D5 /* UserData.swift */; };
 		D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB79F29A5B9FD00645147 /* WordChange.swift */; };
 		D46DB7A329A5B9FD00645147 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A029A5B9FD00645147 /* Word.swift */; };
 		D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A129A5B9FD00645147 /* WordTag.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		D44C1EAD29BD02E90050FED3 /* DataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataControllerTests.swift; path = WordyTests/DataControllerTests.swift; sourceTree = SOURCE_ROOT; };
 		D44D782329BD59B80060C8D5 /* UserDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataInteractor.swift; sourceTree = "<group>"; };
+		D44D782529BD64A80060C8D5 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D46DB79F29A5B9FD00645147 /* WordChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordChange.swift; sourceTree = "<group>"; };
 		D46DB7A029A5B9FD00645147 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		D46DB7A129A5B9FD00645147 /* WordTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTag.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				D46DB7BC29AC943500645147 /* TagList.swift */,
 				D46DB7C629AF506600645147 /* WordList.swift */,
 				D46DB7C929AF752200645147 /* WordDetail.swift */,
+				D44D782529BD64A80060C8D5 /* UserData.swift */,
 				D46DB7DC29B7372A00645147 /* Quiz.swift */,
 			);
 			path = Screens;
@@ -426,6 +429,7 @@
 			files = (
 				D46DB7CA29AF752200645147 /* WordDetail.swift in Sources */,
 				D46DB7DD29B7372A00645147 /* Quiz.swift in Sources */,
+				D44D782629BD64A80060C8D5 /* UserData.swift in Sources */,
 				D46DB7E629BB428D00645147 /* DataController.swift in Sources */,
 				D46DB7CD29AF86B700645147 /* ErrorView.swift in Sources */,
 				D46DB7E429BB412700645147 /* FlyingWords.xcdatamodeld in Sources */,

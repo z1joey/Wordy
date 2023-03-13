@@ -25,6 +25,12 @@ struct ContentView: View {
                 .tabItem {
                     Label("Practice", systemImage: "square.and.pencil")
                 }
+
+            UserData()
+                .environment(\.injected, injected)
+                .tabItem {
+                    Label("UserData", systemImage: "square")
+                }
         }
         .onReceive(canRequestSpeechPermissionUpdate, perform: requestSpeechPermission)
     }
