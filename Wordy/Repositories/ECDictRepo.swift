@@ -114,3 +114,10 @@ private extension ECDcitRepo {
         return future.receive(on: DispatchQueue.main).eraseToAnyPublisher()
     }
 }
+
+public enum RepoError: Error {
+    case invalidDatabase
+    case invalidFilePath
+    case invalidWordTag
+    case notFound(word: String)
+}
