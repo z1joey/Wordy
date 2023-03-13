@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D44C1EAF29BD034A0050FED3 /* DataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C1EAD29BD02E90050FED3 /* DataControllerTests.swift */; };
+		D44D782429BD59B80060C8D5 /* UserDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D782329BD59B80060C8D5 /* UserDataInteractor.swift */; };
 		D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB79F29A5B9FD00645147 /* WordChange.swift */; };
 		D46DB7A329A5B9FD00645147 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A029A5B9FD00645147 /* Word.swift */; };
 		D46DB7A429A5B9FD00645147 /* WordTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7A129A5B9FD00645147 /* WordTag.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		D44C1EAD29BD02E90050FED3 /* DataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataControllerTests.swift; path = WordyTests/DataControllerTests.swift; sourceTree = SOURCE_ROOT; };
+		D44D782329BD59B80060C8D5 /* UserDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataInteractor.swift; sourceTree = "<group>"; };
 		D46DB79F29A5B9FD00645147 /* WordChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordChange.swift; sourceTree = "<group>"; };
 		D46DB7A029A5B9FD00645147 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		D46DB7A129A5B9FD00645147 /* WordTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTag.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				D46DB7B329A7933E00645147 /* ECDictInteractor.swift */,
 				D46DB7DA29B72AB400645147 /* SpeechInteractor.swift */,
 				D46DB7DE29B7670D00645147 /* UserPermissionInteractor.swift */,
+				D44D782329BD59B80060C8D5 /* UserDataInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				D46DB7C229ACDFB000645147 /* AppState.swift in Sources */,
 				D46DB7B729A79EA100645147 /* InteractorsContainer.swift in Sources */,
 				D46DB7C729AF506600645147 /* WordList.swift in Sources */,
+				D44D782429BD59B80060C8D5 /* UserDataInteractor.swift in Sources */,
 				D46DB7C029AC98A500645147 /* AppEnvironment.swift in Sources */,
 				D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */,
 				D46DB7BD29AC943500645147 /* TagList.swift in Sources */,

@@ -12,12 +12,14 @@ extension DIContainer {
         let dict: EC_DICT_INTERACTOR
         let speech: SPEECH_INTERACTOR
         let permission: USER_PERMISSION_INTERACTOR
+        let userData: USER_DATA_INTERACTOR
 
         static var stub: Self {
             .init(
                 dict: StubECDictInteractor(),
                 speech: StubSpeechInteractor(),
-                permission: StubUserPermissionInteractor()
+                permission: StubUserPermissionInteractor(),
+                userData: StubUserDataInteractor()
             )
         }
     }

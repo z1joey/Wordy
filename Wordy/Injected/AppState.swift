@@ -9,7 +9,15 @@ import Foundation
 
 struct AppState {
     var routing = ViewRouting()
+    var userData = UserData()
     var permissions = Permissions()
+}
+
+// MARK: UserData
+extension AppState {
+    struct UserData {
+        var vocabularies: [Vocabulary] = []
+    }
 }
 
 // MARK: Routing

@@ -14,6 +14,7 @@ protocol PERSISTENT_STORE {
     func fetch() -> AnyPublisher<[Vocabulary], Error>
     func save() -> AnyPublisher<Void, Error>
     func save(word: String) -> AnyPublisher<Void, Error>
+    func delete(_ vocabulary: Vocabulary) -> AnyPublisher<Void, Error>
 }
 
 struct DataController: PERSISTENT_STORE {
