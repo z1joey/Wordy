@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="UserDataEntity" representedClassName="UserDataEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="target" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="target" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wordTag" attributeType="String"/>
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WordEntity"/>
     </entity>

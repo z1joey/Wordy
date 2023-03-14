@@ -13,6 +13,12 @@ extension UserDataEntity {
     }
 }
 
+extension WordEntity {
+    static func request() -> NSFetchRequest<WordEntity> {
+        return NSFetchRequest<WordEntity>(entityName: String(describing: WordEntity.self))
+    }
+}
+
 extension NSSet {
     func toArray<T>(of type: T.Type) -> [T] {
         allObjects.compactMap { $0 as? T }
