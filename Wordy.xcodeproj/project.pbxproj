@@ -38,6 +38,7 @@
 		D46DB7E429BB412700645147 /* FlyingWords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7E229BB412700645147 /* FlyingWords.xcdatamodeld */; };
 		D46DB7E629BB428D00645147 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46DB7E529BB428D00645147 /* DataController.swift */; };
 		D488307229BFA35B00909469 /* TagSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488307129BFA35B00909469 /* TagSelection.swift */; };
+		D488307429C02A5700909469 /* CoreData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488307329C02A5700909469 /* CoreData+.swift */; };
 		D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */; };
 		D4AA7BA129A5AE4400CC463A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA7BA029A5AE4400CC463A /* ContentView.swift */; };
 		D4AA7BA329A5AE4500CC463A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AA7BA229A5AE4500CC463A /* Assets.xcassets */; };
@@ -98,6 +99,7 @@
 		D46DB7E329BB412700645147 /* FlyingWords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlyingWords.xcdatamodel; sourceTree = "<group>"; };
 		D46DB7E529BB428D00645147 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		D488307129BFA35B00909469 /* TagSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelection.swift; sourceTree = "<group>"; };
+		D488307329C02A5700909469 /* CoreData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+.swift"; sourceTree = "<group>"; };
 		D4AA7B9B29A5AE4400CC463A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AA7B9E29A5AE4400CC463A /* WordyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordyApp.swift; sourceTree = "<group>"; };
 		D4AA7BA029A5AE4400CC463A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				D46DB7AE29A752EA00645147 /* CancelBag.swift */,
 				D46DB7D429B5EC4F00645147 /* SpeechEngine.swift */,
 				D46DB7D629B654A600645147 /* Binding+.swift */,
+				D488307329C02A5700909469 /* CoreData+.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -179,11 +182,11 @@
 		D46DB7C829AF506A00645147 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D46DB7DC29B7372A00645147 /* Quiz.swift */,
 				D46DB7BC29AC943500645147 /* TagList.swift */,
 				D46DB7C629AF506600645147 /* WordList.swift */,
 				D46DB7C929AF752200645147 /* WordDetail.swift */,
 				D44D782529BD64A80060C8D5 /* UserData.swift */,
-				D46DB7DC29B7372A00645147 /* Quiz.swift */,
 				D44D782729BF02500060C8D5 /* TagSetting.swift */,
 				D488307129BFA35B00909469 /* TagSelection.swift */,
 			);
@@ -459,6 +462,7 @@
 				D46DB7AF29A752EA00645147 /* CancelBag.swift in Sources */,
 				D46DB7AD29A750F100645147 /* Loadable.swift in Sources */,
 				D488307229BFA35B00909469 /* TagSelection.swift in Sources */,
+				D488307429C02A5700909469 /* CoreData+.swift in Sources */,
 				D4AA7B9F29A5AE4400CC463A /* WordyApp.swift in Sources */,
 				D46DB7A229A5B9FD00645147 /* WordChange.swift in Sources */,
 				D46DB7CF29AF8ACF00645147 /* IdleView.swift in Sources */,

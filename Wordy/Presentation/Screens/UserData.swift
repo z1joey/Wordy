@@ -7,66 +7,80 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 struct UserData: View {
     @Environment(\.injected) private var injected: DIContainer
-    @State private(set) var vocabularies: [Vocabulary] = []
+    @State private(set) var entities: [WordEntity] = []
     @State private(set) var error: Error?
+    @State private(set) var refreshID = UUID()
 
     var body: some View {
         VStack {
-            List(vocabularies, id: \.word) { item in
-                HStack {
-                    Text(item.word ?? "Unknown")
+            List {
+                ForEach(entities) { item in
+                    HStack {
+                        Text(item.word ?? "Unknown")
 
-                    Spacer()
+                        Spacer()
 
-                    Button("update") {
-                        item.word = "BBB"
-                        save()
+                        Button("update") {
+                            save { _ in
+                                item.word = fakeWord()
+                                refreshID = UUID()
+                            }
+                        }
                     }
-
-//                    Button("delete") {
-//                        delete(item)
-//                    }
                 }
+                .onDelete(perform: delete)
             }
+            .id(refreshID)
 
             Button("Add Test Data") {
-                saveWord("AAA")
-            }
-
-            Button("Refresh Data") {
-                loadVocabularies()
+                save { context in
+                    let entity = WordEntity(context: context)
+                    entity.word = fakeWord()
+                    entity.visited = Date()
+                    injected.appState.value[keyPath: \.userData]?.addToWords(entity)
+                }
             }
         }
-        .onAppear(perform: loadVocabularies)
-        .onReceive(vocabularyUpdate) { self.vocabularies = $0 }
+        .onReceive(wordUpdate) { self.entities = $0 }
     }
 }
 
 private extension UserData {
-    var vocabularyUpdate: AnyPublisher<[Vocabulary], Never> {
+    var wordUpdate: AnyPublisher<[WordEntity], Never> {
         injected
             .appState
-            .map(\.userData.vocabularies)
+            .map(\.userData?.words)
+            .compactMap { $0?.toArray(of: WordEntity.self) }
             .eraseToAnyPublisher()
     }
 
-    func loadVocabularies() {
-        injected.interactors.userData.loadData(onError: $error)
+    func delete(offsets: IndexSet) {
+        withAnimation {
+            offsets
+                .map { entities[$0] }
+                .forEach { entity in
+                    injected.interactors.userData.save(onError: $error) { context in
+                        context.delete(entity)  
+                    }
+                }
+        }
     }
 
-    func saveWord(_ word: String) {
-        injected.interactors.userData.save(word: word, onError: $error)
+    func save(operation: @escaping (NSManagedObjectContext) -> Void) {
+        injected.interactors.userData.save(onError: $error, operation: operation)
     }
 
-    func delete(_ vocabulary: Vocabulary) {
-        injected.interactors.userData.delete(vocabulary: vocabulary, onError: $error)
-    }
-
-    func save() {
-        injected.interactors.userData.save(onError: $error)
+    func fakeWord() -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyz"
+        let char1 = String(letters.randomElement()!)
+        let char2 = String(letters.randomElement()!)
+        let char3 = String(letters.randomElement()!)
+        let word = char1 + char2 + char3
+        return word
     }
 }
 

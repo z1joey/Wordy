@@ -10,7 +10,9 @@ import Combine
 
 struct TagSelection: View {
     @Environment(\.injected) private var injected: DIContainer
+
     @State private var selection: WordTag?
+    @State private var error: Error?
 
     var body: some View {
         List(WordTag.allCases) { tag in
@@ -29,14 +31,18 @@ private extension TagSelection {
     var tagUpdate: AnyPublisher<WordTag, Never> {
         injected
             .appState
-            .map(\.userData.selectedTag)
+            .compactMap(\.userData?.wordTag)
+            .compactMap { WordTag(rawValue: $0) }
             .eraseToAnyPublisher()
     }
 
     func select(tag: WordTag) {
         injected
-            .appState
-            .value[keyPath: \.userData.selectedTag] = tag
+            .interactors
+            .userData
+            .save(onError: $error) { context in
+                injected.appState.value[keyPath: \.userData!.wordTag] = tag.code
+            }
 
         injected
             .appState

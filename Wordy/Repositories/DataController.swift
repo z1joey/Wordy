@@ -10,24 +10,21 @@ import CoreData
 import Combine
 
 protocol PERSISTENT_STORE {
-    func count() -> AnyPublisher<Int, Error>
-    func fetch() -> AnyPublisher<[Vocabulary], Error>
-    func save() -> AnyPublisher<Void, Error>
-    func save(word: String) -> AnyPublisher<Void, Error>
-    func delete(_ vocabulary: Vocabulary) -> AnyPublisher<Void, Error>
+    func count<T>(_ request: NSFetchRequest<T>) -> AnyPublisher<Int, Error>
+    func fetch<T>(_ request: NSFetchRequest<T>) -> AnyPublisher<[T], Error>
+    func save(operation: @escaping (NSManagedObjectContext) -> Void) -> AnyPublisher<Void, Error>
 }
 
 struct DataController: PERSISTENT_STORE {
     private let bgQueue = DispatchQueue(label: "coredata")
     private let container: NSPersistentContainer = .init(name: "FlyingWords")
     private let isStoreLoaded = CurrentValueSubject<Bool, Error>(false)
-    private let entityName = "Vocabulary"
 
     private var onStoreIsReady: AnyPublisher<Void, Error> {
         return isStoreLoaded.filter { $0 }.map { _ in }.eraseToAnyPublisher()
     }
 
-    init(directory: FileManager.SearchPathDirectory = .documentDirectory,
+    init(modelName: String, directory: FileManager.SearchPathDirectory = .documentDirectory,
          domainMask: FileManager.SearchPathDomainMask = .userDomainMask) {
 
         bgQueue.sync { [weak isStoreLoaded, weak container] in
@@ -48,9 +45,7 @@ struct DataController: PERSISTENT_STORE {
         }
     }
 
-    func count() -> AnyPublisher<Int, Error> {
-        let request: NSFetchRequest<Vocabulary> = .init(entityName: entityName)
-
+    func count<T>(_ request: NSFetchRequest<T>) -> AnyPublisher<Int, Error> {
         return onStoreIsReady
             .flatMap { [weak bgQueue, weak container] in
                 Future<Int, Error> { promise in
@@ -68,14 +63,13 @@ struct DataController: PERSISTENT_STORE {
             .eraseToAnyPublisher()
     }
 
-    func fetch() -> AnyPublisher<[Vocabulary], Error> {
-        let request: NSFetchRequest<Vocabulary> = .init(entityName: entityName)
-
-        let fetch = Future<[Vocabulary], Error> { [weak bgQueue, weak container] promise in
+    func fetch<T>(_ request: NSFetchRequest<T>) -> AnyPublisher<[T], Error> {
+        let fetch = Future<[T], Error> { [weak bgQueue, weak container] promise in
             bgQueue?.async {
                 do {
-                    let res = try container?.viewContext.fetch(request) ?? []
-                    promise(.success(res))
+                    if let fetched = try container?.viewContext.fetch(request) {
+                        promise(.success(fetched))
+                    }
                 } catch {
                     promise(.failure(error))
                 }
@@ -88,29 +82,13 @@ struct DataController: PERSISTENT_STORE {
             .eraseToAnyPublisher()
     }
 
-    func save() -> AnyPublisher<Void, Error> {
-        let future = Future<Void, Error> { [weak bgQueue, weak container] promise in
-            bgQueue?.sync {
-                do {
-                    try container?.viewContext.save()
-                    promise(.success(()))
-                } catch {
-                    promise(.failure(error))
-                }
-            }
-        }
-
-        return future.receive(on: DispatchQueue.main).eraseToAnyPublisher()
-    }
-
-    func save(word: String) -> AnyPublisher<Void, Error> {
+    func save(operation: @escaping (NSManagedObjectContext) -> Void) -> AnyPublisher<Void, Error> {
         let create = Future<Void, Error> { [weak bgQueue, weak container] promise in
             bgQueue?.sync {
-                if let context = container?.viewContext {
-                    let vocabulary = Vocabulary(context: context)
-                    vocabulary.word = word
-
+                guard let context = container?.viewContext else { return }
+                context.performAndWait {
                     do {
+                        operation(context)
                         try context.save()
                         promise(.success(()))
                     } catch {
@@ -122,25 +100,6 @@ struct DataController: PERSISTENT_STORE {
 
         return onStoreIsReady
             .flatMap { create }
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-
-    func delete(_ vocabulary: Vocabulary) -> AnyPublisher<Void, Error> {
-        let delete = Future<Void, Error> { [weak bgQueue, weak container] promise in
-            bgQueue?.sync {
-                do {
-                    container?.viewContext.delete(vocabulary)
-                    try container?.viewContext.save()
-                    promise(.success(()))
-                } catch {
-                    promise(.failure(error))
-                }
-            }
-        }
-
-        return onStoreIsReady
-            .flatMap { delete }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

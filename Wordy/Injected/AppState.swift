@@ -6,19 +6,12 @@
 //
 
 import Foundation
+import CoreData
 
 struct AppState {
     var routing = ViewRouting()
-    var userData = UserData()
     var permissions = Permissions()
-}
-
-// MARK: UserData
-extension AppState {
-    struct UserData {
-        var selectedTag: WordTag = .cet4
-        var vocabularies: [Vocabulary] = []
-    }
+    var userData: UserDataEntity? = nil
 }
 
 // MARK: Routing

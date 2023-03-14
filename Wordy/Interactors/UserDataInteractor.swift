@@ -8,12 +8,11 @@
 import Foundation
 import SwiftUI
 import Combine
+import CoreData
 
 protocol USER_DATA_INTERACTOR {
     func loadData(onError: Binding<Error?>)
-    func save(onError: Binding<Error?>)
-    func save(word: String, onError: Binding<Error?>)
-    func delete(vocabulary: Vocabulary, onError: Binding<Error?>)
+    func save(onError: Binding<Error?>, operation: @escaping (NSManagedObjectContext) -> Void)
 }
 
 struct UserDataInteractor: USER_DATA_INTERACTOR {
@@ -23,56 +22,38 @@ struct UserDataInteractor: USER_DATA_INTERACTOR {
 
     init(appState: CurrentValueSubject<AppState, Never>) {
         self.appState = appState
-        self.store = DataController()
+        self.store = DataController(modelName: "FlyingWords")
     }
 
     func loadData(onError: Binding<Error?>) {
-        Just<Void>(())
-            .setFailureType(to: Error.self)
-            .flatMap { store.fetch() }
+        store.fetch(UserDataEntity.request())
             .sink { completion in
                 switch completion {
                 case .finished: break
                 case .failure(let error):
                     onError.wrappedValue = error
                 }
-            } receiveValue: { val in
-                appState.value[keyPath: \.userData.vocabularies] = val
+            } receiveValue: { res in
                 onError.wrappedValue = nil
-            }
-            .store(in: cancelBag)
-    }
 
-    func save(onError: Binding<Error?>) {
-        store.save()
-            .sink { completion in
-                switch completion {
-                case .finished: break
-                case .failure(let error):
-                    onError.wrappedValue = error
+                if let userData = res.first {
+                    appState.value[keyPath: \.userData] = userData
+                } else {
+                    save(onError: onError) { context in
+                        let userData = UserDataEntity(context: context)
+                        userData.wordTag = WordTag.cet4.code
+                        userData.target = 50
+                        userData.words = []
+
+                        appState.value[keyPath: \.userData] = userData
+                    }
                 }
-            } receiveValue: { _ in
-                onError.wrappedValue = nil
             }
             .store(in: cancelBag)
     }
 
-    func save(word: String, onError: Binding<Error?>) {
-        store.save(word: word)
-            .sink { completion in
-                switch completion {
-                case .finished: break
-                case .failure(let error):
-                    onError.wrappedValue = error
-                }
-            } receiveValue: { _ in
-                onError.wrappedValue = nil
-            }
-            .store(in: cancelBag)
-    }
-
-    func delete(vocabulary: Vocabulary, onError: Binding<Error?>) {
-        store.delete(vocabulary)
+    func save(onError: Binding<Error?>, operation: @escaping (NSManagedObjectContext) -> Void) {
+        store.save(operation: operation)
             .sink { completion in
                 switch completion {
                 case .finished: break
@@ -88,7 +69,5 @@ struct UserDataInteractor: USER_DATA_INTERACTOR {
 
 struct StubUserDataInteractor: USER_DATA_INTERACTOR {
     func loadData(onError: Binding<Error?>) {}
-    func save(onError: Binding<Error?>) {}
-    func save(word: String, onError: Binding<Error?>) {}
-    func delete(vocabulary: Vocabulary, onError: Binding<Error?>) {}
+    func save(onError: Binding<Error?>, operation: @escaping (NSManagedObjectContext) -> Void) {}
 }

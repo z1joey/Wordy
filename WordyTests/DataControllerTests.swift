@@ -45,8 +45,9 @@ final class DataControllerTests: XCTestCase {
                 case .failure(let error):
                     XCTFail(error.localizedDescription, file: #file, line: #line)
                 }
-            } receiveValue: { values in
-                XCTAssertEqual(values, [], file: #file, line: #line)
+            } receiveValue: { val in
+                let words = val.words?.allObjects.compactMap { $0 as? WordEntity } ?? []
+                XCTAssertEqual(words, [], file: #file, line: #line)
                 exp.fulfill()
             }
             .store(in: cancelBag)
@@ -97,7 +98,7 @@ final class DataControllerTests: XCTestCase {
         let exp = XCTestExpectation(description: #function)
         let testWord = "Hello"
 
-        sut.save(word: testWord)
+        sut.add(word: testWord)
             .flatMap { self.sut.fetch() }
             .sink { completion in
                 switch completion {
@@ -121,7 +122,7 @@ final class DataControllerTests: XCTestCase {
         let testWord = "Hello"
         let updatedWord = "World"
         
-        sut.save(word: testWord)
+        sut.add(word: testWord)
             .flatMap { self.sut.fetch() }
             .compactMap { $0.first }
             .map { $0.word = updatedWord }
@@ -148,7 +149,7 @@ final class DataControllerTests: XCTestCase {
         let exp = XCTestExpectation(description: #function)
         let testWord = "Hello"
         
-        sut.save(word: testWord)
+        sut.add(word: testWord)
             .flatMap { self.sut.fetch() }
             .compactMap { $0.first }
             .flatMap { self.sut.delete($0) }

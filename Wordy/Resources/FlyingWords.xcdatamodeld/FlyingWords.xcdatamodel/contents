@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Vocabulary" representedClassName="Vocabulary" syncable="YES" codeGenerationType="class">
-        <attribute name="visited" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="word" optional="YES" attributeType="String"/>
+    <entity name="UserDataEntity" representedClassName="UserDataEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="target" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wordTag" attributeType="String"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WordEntity"/>
+    </entity>
+    <entity name="WordEntity" representedClassName="WordEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="visited" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="word" attributeType="String"/>
+        <relationship name="userData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordEntity" inverseName="userData" inverseEntity="WordEntity"/>
     </entity>
 </model>

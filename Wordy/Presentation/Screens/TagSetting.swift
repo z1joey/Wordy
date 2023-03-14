@@ -12,7 +12,8 @@ struct TagSetting: View {
     @Environment(\.injected) private var injected: DIContainer
 
     @State private var selection: WordTag = .cet4
-    @State private var count: Double = 50
+    @State private var target: Double = 50
+    @State private var error: Error?
 
     @State private var routingState: Routing = .init()
     private var routingBinding: Binding<Routing> {
@@ -27,8 +28,9 @@ struct TagSetting: View {
                 }
 
                 VStack {
-                    Text("\(Int(count)) Words")
-                    Slider(value: $count, in: 10...100, step: 10)
+                    Text("\(Int(target)) Words")
+                    Slider(value: $target, in: 10...100, step: 10)
+                        .onChange(of: target, perform: updateTarget)
                 }
                 .padding()
 
@@ -41,8 +43,12 @@ struct TagSetting: View {
                 }
             }
         }
-        .onReceive(tagUpdate) { selection = $0 }
+        .onReceive(tagUpdate) { self.selection = $0 }
         .onReceive(routingUpdate) { self.routingState = $0 }
+        .onAppear {
+            let target = injected.appState.value[keyPath: \.userData?.target]
+            self.target = Double(target ?? 50)
+        }
         .sheet(isPresented: routingBinding.tagsSheet) { TagSelection() }
     }
 }
@@ -51,7 +57,8 @@ private extension TagSetting {
     var tagUpdate: AnyPublisher<WordTag, Never> {
         injected
             .appState
-            .map(\.userData.selectedTag)
+            .compactMap(\.userData?.wordTag)
+            .compactMap { WordTag(rawValue: $0) }
             .eraseToAnyPublisher()
     }
 
@@ -61,6 +68,12 @@ private extension TagSetting {
 
     func showTagsSheet() {
         injected.appState.value[keyPath: \.routing.tagSetting.tagsSheet] = true
+    }
+
+    func updateTarget(_ target: Double) {
+        injected.interactors.userData.save(onError: $error) { context in
+            injected.appState.value[keyPath: \.userData!.target] = Int16(target)
+        }
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct WordyApp: App {
     @Environment(\.scenePhase) private var scenePhase
+    @State private var error: Error?
 
     private let environment: AppEnvironment
     private let container: DIContainer
@@ -21,7 +22,9 @@ struct WordyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView().environment(\.injected, container)
+            ContentView()
+                .onAppear(perform: loadUserData)
+                .environment(\.injected, container)
         }
         .onChange(of: scenePhase) { newValue in
             switch newValue {
@@ -38,5 +41,12 @@ private extension WordyApp {
             .interactors
             .permission
             .resolveStatus(for: .speechRecognizer)
+    }
+
+    func loadUserData() {
+        container
+            .interactors
+            .userData
+            .loadData(onError: $error)
     }
 }
