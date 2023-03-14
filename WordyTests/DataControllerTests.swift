@@ -101,7 +101,10 @@ final class DataControllerTests: XCTestCase {
         sut.save { context in
             let entity = WordEntity(context: context)
             entity.word = testWord
-            entity.visited = Date()
+            entity.visited = 1
+            entity.confidence = 0
+            entity.lastTime = Date()
+            entity.done = false
         }
         .flatMap { self.sut.fetch(WordEntity.request()) }
         .sink { completion in
@@ -129,7 +132,10 @@ final class DataControllerTests: XCTestCase {
         sut.save { context in
             let entity = WordEntity(context: context)
             entity.word = testWord
-            entity.visited = Date()
+            entity.visited = 1
+            entity.confidence = 0
+            entity.lastTime = Date()
+            entity.done = false
         }
         .flatMap { self.sut.fetch(WordEntity.request()) }
         .compactMap { $0.first }
@@ -163,7 +169,10 @@ final class DataControllerTests: XCTestCase {
         sut.save { context in
             let entity = WordEntity(context: context)
             entity.word = testWord
-            entity.visited = Date()
+            entity.visited = 1
+            entity.confidence = 0
+            entity.lastTime = Date()
+            entity.done = false
         }
         .flatMap { self.sut.fetch(WordEntity.request()) }
         .compactMap { $0.first }
@@ -198,7 +207,10 @@ final class DataControllerTests: XCTestCase {
             let userData = UserDataEntity(context: context)
             let word = WordEntity(context: context)
             word.word = "whatever"
-            word.visited = Date()
+            word.visited = 1
+            word.confidence = 0
+            word.lastTime = Date()
+            word.done = false
             userData.addToWords(word)
             userData.wordTag = "cet4"
             userData.target = 60

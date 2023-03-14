@@ -6,7 +6,10 @@
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WordEntity"/>
     </entity>
     <entity name="WordEntity" representedClassName="WordEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="visited" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="confidence" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastTime" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="visited" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="word" attributeType="String"/>
         <relationship name="userData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordEntity" inverseName="userData" inverseEntity="WordEntity"/>
     </entity>

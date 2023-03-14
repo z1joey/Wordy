@@ -40,7 +40,10 @@ struct UserData: View {
                 save { context in
                     let entity = WordEntity(context: context)
                     entity.word = fakeWord()
-                    entity.visited = Date()
+                    entity.visited = 1
+                    entity.confidence = 0
+                    entity.lastTime = Date()
+                    entity.done = false
                     injected.appState.value[keyPath: \.userData]?.addToWords(entity)
                 }
             }
