@@ -31,6 +31,12 @@ struct ContentView: View {
                 .tabItem {
                     Label("UserData", systemImage: "square")
                 }
+
+            TagSetting()
+                .environment(\.injected, injected)
+                .tabItem {
+                    Label("TagSetting", systemImage: "circle")
+                }
         }
         .onReceive(canRequestSpeechPermissionUpdate, perform: requestSpeechPermission)
     }

@@ -16,6 +16,7 @@ struct AppState {
 // MARK: UserData
 extension AppState {
     struct UserData {
+        var selectedTag: WordTag = .cet4
         var vocabularies: [Vocabulary] = []
     }
 }
@@ -24,6 +25,7 @@ extension AppState {
 extension AppState {
     struct ViewRouting {
         var wordList = WordList.Routing()
+        var tagSetting = TagSetting.Routing()
     }
 }
 
